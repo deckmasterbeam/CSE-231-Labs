@@ -1,16 +1,13 @@
 def file_to_list(file):
     height_list, weight_list, name_list = [], [], []
-    line_number = 0
-    line = ""
-    for line_number,line in enumerate(file):
-        temp = 0
-        if line_number >= 1:
-            temp = str(line[:10])
-            name_list.append(temp)
-            temp = float(line[12:16])
-            height_list.append(temp)
-            temp = float(line[24:29])
-            weight_list.append(temp)
+    file.readline()
+    for line in file:
+        temp = str(line[:10])
+        name_list.append(temp)
+        temp = float(line[12:16])
+        height_list.append(temp)
+        temp = float(line[24:29])
+        weight_list.append(temp)
     return height_list, weight_list, name_list
 
 def minimum(list_local):
@@ -32,7 +29,6 @@ def maximum(list_local):
 def bmi_calculator(height_list, weight_list):
     while_counter = 0
     bmi_list = []
-    temp = 0
     while while_counter < len(height_list):
         temp = weight_list[while_counter]/(height_list[while_counter]**2)
         bmi_list.append(temp)
@@ -64,7 +60,7 @@ bmi_max):
     print("Min         {:.2f}        {:.2f}       {:.2f}".format(height_min,\
     weight_min, bmi_min))
     
-    
+#main    
 list_bmi, list_height, list_name = [], [], []
 min_height, min_weight, min_bmi, max_height, max_weight, max_bmi = 0,0,0,0,0,0
 ave_weight, ave_height, ave_bmi = 0,0,0
